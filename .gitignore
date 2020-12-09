@@ -1,0 +1,13 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+.vscode
+
+# Dependency directories
+node_modules/
+node-server.js
+package-lock.json
+
+message.txt
