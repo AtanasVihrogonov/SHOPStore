@@ -2,12 +2,14 @@
 logs
 *.log
 npm-debug.log*
-
 .vscode
-
 # Dependency directories
 node_modules/
 node-server.js
 package-lock.json
 
+# dotenv environment variables file
+.env
+
 message.txt
+

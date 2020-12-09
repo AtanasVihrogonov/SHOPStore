@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+}
+h1 {
+  margin: 1rem;
+}
+main {
+  padding: 1rem;
+}
+.main-header {
+  height: 3.5rem;
+  background-color: #033350;
+  padding: 0 1.5rem;
+}
+.main-header__nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.mai-header__item-list {
+  display: flex;
+  list-style: none;
+}
+.main-header__item {
+  margin-left: 1rem;
+}
+.main-header__item a {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d3dbdf;
+}
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a.active {
+  font-weight: bold;
+  color: #8d8d83;
+}
