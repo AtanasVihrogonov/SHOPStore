@@ -1,45 +1,114 @@
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
-body {
-  font-family: sans-serif;
-}
-h1 {
-  margin: 1rem;
-}
+
 main {
   padding: 1rem;
+  margin: auto;
 }
+
 .main-header {
+  width: 100%;
   height: 3.5rem;
-  background-color: #033350;
+  background-color: #404040;
   padding: 0 1.5rem;
 }
+
 .main-header__nav {
   height: 100%;
   display: flex;
   align-items: center;
 }
+
 .mai-header__item-list {
+  margin: 0;
+  padding: 0;
   display: flex;
   list-style: none;
 }
+
 .main-header__item {
-  margin-left: 1rem;
+  margin: 0 1rem;
+  padding: 0;
 }
+
 .main-header__item a {
-  font-size: 12px;
-  text-transform: uppercase;
   text-decoration: none;
-  color: #d3dbdf;
+  color: #a1a1a1;
 }
+
 .main-header__item a:hover,
 .main-header__item a:active,
 .main-header__item a.active {
-  font-weight: bold;
-  color: #8d8d83;
+  color: #c5aa6a;
 }
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.card__header,
+.card__content {
+  padding: 1rem;
+}
+
+.card__header h1,
+.card__content h1,
+.card__content h2,
+.card__content p {
+  margin: 0;
+}
+
+.card__content h2 {
+  margin-bottom: 0.5rem;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.card__actions {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+  margin: 0 0.25rem;
+}
+
+.btn {
+  font-size: 1rem;
+  border: 1px solid #c5aa6a;
+  background-color: #c5aa6a;
+  color: black;
+  border-radius: 3px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #c5aa6a;
+  color: white;
+}
+
