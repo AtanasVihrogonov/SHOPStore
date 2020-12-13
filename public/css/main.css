@@ -28,14 +28,14 @@ main {
   align-items: center;
 }
 
-.mai-header__item-list {
+.main-header__item-list {
+  display: flex;
   margin: 0;
   padding: 0;
-  display: flex;
-  list-style: none;
 }
 
 .main-header__item {
+  list-style: none;
   margin: 0 1rem;
   padding: 0;
 }
