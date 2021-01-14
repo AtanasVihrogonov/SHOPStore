@@ -4,6 +4,7 @@ const express = require('express'); //-->  initialize express
 const bodyParser = require('body-parser'); // --> initialize body-parser
 
 const errorController = require('./controllers/error');
+const db = require('./util/database');
 
 const app = express(); //--> initialize app to use experss
 
@@ -12,6 +13,15 @@ app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin'); // import admin.js file
 const shopRoutes = require('./routes/shop'); // import shop.js file
+
+db.execute('SELECT * FROM products')
+  .then((result) => {
+    console.log(result[0], result[1]);
+  })
+  .catch((err) => {
+
+    console.log('123', err);
+  });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
