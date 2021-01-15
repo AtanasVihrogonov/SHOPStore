@@ -1,36 +1,37 @@
-const path = require('path'); // initialize core module path
+const path = require('path');
 
-const express = require('express'); //-->  initialize express
-const bodyParser = require('body-parser'); // --> initialize body-parser
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error');
-const db = require('./util/database');
+const mongoConnect = require('./util/database').mongoConnect;
 
-const app = express(); //--> initialize app to use experss
+const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const adminRoutes = require('./routes/admin'); // import admin.js file
-const shopRoutes = require('./routes/shop'); // import shop.js file
-
-db.execute('SELECT * FROM products')
-  .then((result) => {
-    console.log(result[0], result[1]);
-  })
-  .catch((err) => {
-
-    console.log('123', err);
-  });
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Outsource routes
-// Adding '/admin' like a filter, so that only that routes go to adminRouters
-app.use('/admin', adminRoutes); // exporting router object to use like a middleware .
-app.use(shopRoutes); // exporting router object to use like a middleware
+app.use((req, res, next) => {
+  // User.findById(1)
+  //   .then(user => {
+  //     req.user = user;
+  //     next();
+  //   })
+  //   .catch(err => console.log(err));
+  next();
+});
+
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(3000); //--> listen server in port
+mongoConnect(() => {
+  app.listen(3000);
+});
