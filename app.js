@@ -19,12 +19,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  // User.findById(1)
-  //   .then(user => {
-  //     req.user = user;
-  //     next();
-  //   })
-  //   .catch(err => console.log(err));
+  User.findById('6004c93207572608cd648865')
+    .then((user) => {
+      req.user = user;
+      next();
+    })
+    .catch((err) => console.log(err));
   next();
 });
 
@@ -33,12 +33,23 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-
 mongoose
   .connect(
-    'mongodb+srv://av001:Go849114Akv@av001.yvvhm.mongodb.net/test?retryWrites=true&w=majority'
+    'mongodb+srv://av001:Go849114Akv@av001.yvvhm.mongodb.net/shop?retryWrites=true&w=majority'
   )
   .then((result) => {
+    User.findOne().then(user => {
+      if (!user) {
+        const user = new User({
+          name: 'John',
+          email: 'john@test.com',
+          cart: {
+            items: []
+          }
+        });
+        user.save();
+      }
+    });
     app.listen(3000);
   })
   .catch((err) => {
