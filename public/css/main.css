@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 main {
@@ -15,47 +15,60 @@ main {
   margin: auto;
 }
 
+form {
+  display: inline;
+}
+
 .centered {
   text-align: center;
+}
+
+.image {
+  height: 20rem;
+}
+
+.image img {
+  height: 100%;
 }
 
 .main-header {
   width: 100%;
   height: 3.5rem;
-  background-color: #404040;
+  background-color: #00695c;
   padding: 0 1.5rem;
-}
-
-.main-header__nav {
-  height: 100%;
   display: flex;
   align-items: center;
 }
 
+.main-header__nav {
+  height: 100%;
+  display: none;
+  align-items: center;
+}
+
 .main-header__item-list {
-  display: flex;
+  list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 .main-header__item {
-  list-style: none;
   margin: 0 1rem;
   padding: 0;
 }
 
 .main-header__item a {
   text-decoration: none;
-  color: #a1a1a1;
+  color: white;
 }
 
 .main-header__item a:hover,
 .main-header__item a:active,
 .main-header__item a.active {
-  color: #c5aa6a;
+  color: #ffeb3b;
 }
 
-/* Mobile navigation */
 .mobile-nav {
   width: 30rem;
   height: 100vh;
@@ -156,10 +169,6 @@ main {
   margin: 0;
 }
 
-.card__content h2 {
-  margin-bottom: 0.5rem;
-}
-
 .card__image {
   width: 100%;
 }
@@ -179,19 +188,32 @@ main {
 }
 
 .btn {
-  font-size: 1rem;
-  border: 1px solid #404040;
-  background-color: white;
-  color: black;
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  font: inherit;
+  border: 1px solid #00695c;
+  color: #00695c;
+  background: white;
   border-radius: 3px;
-  padding: 0.3rem 0.6rem;
   cursor: pointer;
 }
 
 .btn:hover,
 .btn:active {
-  background-color: #404040;
-  color: #a1a1a1;
+  background-color: #00695c;
+  color: white;
+}
+
+.btn.danger {
+  color: red;
+  border-color: red;
+}
+
+.btn.danger:hover,
+.btn.danger:active {
+  background: red;
+  color: white;
 }
 
 @media (min-width: 768px) {
