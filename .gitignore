@@ -8,7 +8,7 @@ node_modules/
 node-server.js
 package-lock.json
 
-util/database.js
+controllers/auth.js
 
 # dotenv environment variables file
 .env
