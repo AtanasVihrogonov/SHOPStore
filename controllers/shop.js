@@ -1,6 +1,9 @@
 const Product = require('../models/product');
 const Order = require('../models/order');
 
+// @ GET 
+// @ getProducts
+//-------------------
 exports.getProducts = (req, res, next) => {
   Product.find()
     .then((products) => {
@@ -16,6 +19,9 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
+// @ GET 
+// @ getProduct
+//-------------------
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
   Product.findById(prodId)
@@ -29,6 +35,9 @@ exports.getProduct = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// @ GET 
+// @ getIndex
+//-------------------
 exports.getIndex = (req, res, next) => {
   Product.find()
     .then((products) => {
@@ -43,6 +52,9 @@ exports.getIndex = (req, res, next) => {
     });
 };
 
+// @ GET 
+// @ getCart
+//-------------------
 exports.getCart = (req, res, next) => {
   req.user
     .populate('cart.items.productId')
@@ -58,6 +70,9 @@ exports.getCart = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// @ POST
+// @ postCart
+//-------------------
 exports.postCart = (req, res, next) => {
   const prodId = req.body.productId;
   Product.findById(prodId)
@@ -70,6 +85,9 @@ exports.postCart = (req, res, next) => {
     });
 };
 
+// @ POST
+// @ postCartDeleteProduct
+//-------------------
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
   req.user
@@ -80,6 +98,9 @@ exports.postCartDeleteProduct = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// @ POST
+// @ postOrder
+//-------------------
 exports.postOrder = (req, res, next) => {
   req.user
     .populate('cart.items.productId')
@@ -106,6 +127,9 @@ exports.postOrder = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// @ GET
+// @ getOrders
+//-------------------
 exports.getOrders = (req, res, next) => {
   Order.find({ 'user.userId': req.user._id })
     .then((orders) => {

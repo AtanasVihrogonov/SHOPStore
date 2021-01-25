@@ -1,5 +1,8 @@
 const Product = require('../models/product');
 
+// @ GET 
+// @ Add Product
+//-------------------
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/edit-product', {
     pageTitle: 'Add Product',
@@ -8,6 +11,9 @@ exports.getAddProduct = (req, res, next) => {
   });
 };
 
+// @ POST
+// @ Add Product
+//-------------------
 exports.postAddProduct = (req, res, next) => {
   const title = req.body.title;
   const imageUrl = req.body.imageUrl;
@@ -32,6 +38,9 @@ exports.postAddProduct = (req, res, next) => {
     });
 };
 
+// @ GET 
+// @ getEditProduct
+//-------------------
 exports.getEditProduct = (req, res, next) => {
   const editMode = req.query.edit;
   if (!editMode) {
@@ -53,6 +62,9 @@ exports.getEditProduct = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// @ POST 
+// @ postEditProduct
+//-------------------
 exports.postEditProduct = (req, res, next) => {
   const prodId = req.body.productId;
   const updatedTitle = req.body.title;
@@ -77,6 +89,9 @@ exports.postEditProduct = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// @ GET 
+// @ getProducts
+//-------------------
 exports.getProducts = (req, res, next) => {
   Product.find({ userId: req.user._id })
     // .select('title price -_id')
@@ -92,6 +107,9 @@ exports.getProducts = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// @ POST
+// @ postDeleteProduct
+//-------------------
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
   Product.deleteOne({ _id: prodId, userId: req.user._id })
