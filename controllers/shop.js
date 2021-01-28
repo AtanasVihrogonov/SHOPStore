@@ -1,5 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const stripe = require('stripe')(
+  'sk_test_51IEIVFG1Rf4SwWPiOwPQNMOFJjm6X34McsARvRn5u7nnl5tbZ5V11s4KI9mb47urVUwNMYsMydZEEXVVA8TqkHaB00eGSPKTqs'
+);
 
 const PDFDocument = require('pdfkit');
 
@@ -149,6 +152,51 @@ exports.postCartDeleteProduct = (req, res, next) => {
     .removeFromCart(prodId)
     .then((result) => {
       res.redirect('/cart');
+    })
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
+};
+
+// @ GET
+// @ getCheckout
+//-------------------
+exports.getCheckout = (req, res, next) => {
+  let products;
+  let total = 0;
+  req.user
+    .populate('cart.items.productId')
+    .execPopulate()
+    .then((user) => {
+      const products = user.cart.items;
+      let total = 0;
+      products.forEach((p) => {
+        total += p.quantity * p.productId.price;
+      });
+
+      return stripe.checkout.session.create({
+        payment_method_types: ['cart'],
+        line_items: products.map((p) => {
+          return {
+            name: p.productId.title,
+            description: p.productId.description,
+            amount: p.productId.price * 100,
+            currency: 'gbp',
+            quantity: p.quantity,
+          };
+        }),
+        success_url: req.protocol + '://' + req
+      });
+    })
+    .then((session) => {
+      res.render('shop/checkout', {
+        path: '/checkout',
+        pageTitle: 'Checkout',
+        products: products,
+        sessionId: session.id,
+      });
     })
     .catch((err) => {
       const error = new Error(err);

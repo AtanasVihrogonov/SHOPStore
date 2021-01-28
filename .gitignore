@@ -9,7 +9,6 @@ node-server.js
 package-lock.json
 
 controllers/auth.js
-
 # dotenv environment variables file
 .env
 
