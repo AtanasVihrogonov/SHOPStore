@@ -9,6 +9,7 @@ node-server.js
 package-lock.json
 
 controllers/auth.js
+views/shop/checkout.ejs
 
 # dotenv environment variables file
 .env
