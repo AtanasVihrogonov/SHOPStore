@@ -5,7 +5,6 @@ const stripe = require('stripe')(
   config.STRIPE_SK
 );
 
-
 const PDFDocument = require('pdfkit');
 
 const Product = require('../models/product');
