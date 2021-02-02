@@ -19,8 +19,6 @@ E-commerce web app created with EJS, CSS, JavaScript, Node.js, Express, MongoDB 
 ### Mobile
 ![image2 1](https://user-images.githubusercontent.com/45083295/106662303-21b7e180-659a-11eb-86f7-5795b5e00726.jpg)
 
-![image3 1](https://user-images.githubusercontent.com/45083295/106662289-195fa680-659a-11eb-9048-b95662c87d44.jpg)
-
 ## Demo Website
 - 👉 Heroku : [https://shop-store.herokuapp.com](https://shop-store2.herokuapp.com)
 
