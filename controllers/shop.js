@@ -1,8 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const config = require('../config');
 const stripe = require('stripe')(
-  'sk_test_51IEIVFG1Rf4SwWPiOwPQNMOFJjm6X34McsARvRn5u7nnl5tbZ5V11s4KI9mb47urVUwNMYsMydZEEXVVA8TqkHaB00eGSPKTqs'
+  config.STRIPE_SK
 );
+
 
 const PDFDocument = require('pdfkit');
 
@@ -133,7 +135,7 @@ exports.postCart = (req, res, next) => {
       return req.user.addToCart(product);
     })
     .then((result) => {
-      console.log(result);
+     // console.log(result);
       res.redirect('/cart');
     })
     .catch((err) => {
@@ -199,6 +201,7 @@ exports.getCheckout = (req, res, next) => {
         products: products,
         totalSum: total,
         sessionId: session.id,
+        stripeId: config.STRIPE_PK
       });
     })
     .catch((err) => {
