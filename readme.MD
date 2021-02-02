@@ -2,6 +2,16 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![David](https://img.shields.io/david/dev/taniarascia/webpack-boilerplate)
 
+E-commerce web app created with EJS, CSS, JavaScript, Node.js, Express, MongoDB by implementing: 
+- Routing/Endpoints
+- Handling Request & Responses
+- Request Validation
+- Database Communication
+- Files, Uploads, Downloads
+- Sessions & Cookies
+- Authentication
+
+
 
 ## Screenshots
 ### Desktop
