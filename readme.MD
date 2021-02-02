@@ -8,8 +8,8 @@
 ![image1 1](https://user-images.githubusercontent.com/45083295/106662158-f208d980-6599-11eb-9e32-2a87b4ff5a09.jpg)
 ### Mobile
 ![image2 1](https://user-images.githubusercontent.com/45083295/106662303-21b7e180-659a-11eb-86f7-5795b5e00726.jpg)
-![image3 1](https://user-images.githubusercontent.com/45083295/106662289-195fa680-659a-11eb-9048-b95662c87d44.jpg)
 
+![image3 1](https://user-images.githubusercontent.com/45083295/106662289-195fa680-659a-11eb-9048-b95662c87d44.jpg)
 
 ## Demo Website
 - 👉 Heroku : [https://shop-store.herokuapp.com](https://shop-store2.herokuapp.com)
