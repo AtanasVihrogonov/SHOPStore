@@ -1,6 +1,6 @@
 # Shop-Store
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![David](https://img.shields.io/david/dev/taniarascia/webpack-boilerplate)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
 
 E-commerce web app created with EJS, CSS, JavaScript, Node.js, Express, MongoDB by implementing: 
 - Routing/Endpoints
